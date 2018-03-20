@@ -9,8 +9,9 @@ private:
 	int team;
 	int level;
 	int num;
+	string name;
 public:
-	void InitQuest(int x, int y, int z, int a);
+	void InitQuest(int x, int y, int z, string a, int e);
 	void PrintInfo();
 
 protected:
@@ -33,26 +34,26 @@ protected:
 int main() {
 	int input;
 
-	cout << "Welcome Overseer! Which quest would you like to send your dwellers on today?" << endl;
+	cout << "Welcome to Fallout Shelter quest simulator, Overseer! Which quest would you like to send your dwellers on today?" << endl;
 
 	Vault quest1;
-	quest1.InitQuest(1, 5, 5, 1);
+	quest1.InitQuest(1, 5, 5, "The Quest for Stuff", 1);
 	quest1.PrintInfo();
 
 	Vault quest2;
-	quest2.InitQuest(1, 10, 10, 2);
+	quest2.InitQuest(1, 10, 10, "The Orange Rose", 2);
 	quest2.PrintInfo();
 
 	Vault quest3;
-	quest3.InitQuest(2, 20, 15, 3);
+	quest3.InitQuest(2, 20, 15, "sCHEMing", 3);
 	quest3.PrintInfo();
 
 	Vault quest4;
-	quest4.InitQuest(2, 30, 20, 4);
+	quest4.InitQuest(2, 30, 20, "Reunions", 4);
 	quest4.PrintInfo();
 
 	Vault quest5;
-	quest5.InitQuest(3, 60, 25, 5);
+	quest5.InitQuest(3, 60, 25, "The Deathclaw Chronicles", 5);
 	quest5.PrintInfo();
 
 	cin >> input;
@@ -89,14 +90,15 @@ int main() {
 	}
 
 }
-void Vault::InitQuest(int x, int y, int z, int a) {
+void Vault::InitQuest(int x, int y, int z, string a, int e) {
 	team = x;
 	time = y;
 	level = z;
-	num = a;
+	name = a;
+	num = e;
 }
 void Vault::PrintInfo() {
-	cout << "Quest " << num << " : ";
+	cout << "Quest " << num <<endl<< name << " : ";
 	cout << endl << "Your team needs at least " << team << " people"<< endl;
 	cout << "This quest will take your dwellers " << time << " minutes to complete" << endl;
 	cout << "The minimum level requirement for this quest is :" << level << endl;
@@ -116,5 +118,5 @@ void Quest::PrintRewards() {
 	cout << "For animals, you got " << Animal << endl;
 	cout << "You brought " << Person << " to your vault" << endl;
 	cout << "You've collected a " << Gun << endl;
-	cout << "Your dwellers collected " << caps << "caps" << endl;
+	cout << "Your dwellers collected " << caps << " caps" << endl;
 }
